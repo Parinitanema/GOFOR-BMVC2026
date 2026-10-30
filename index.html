@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="GOFOR | BMVC 2026">
   <meta property="og:description" content="Gradient-Free Orthogonal Feature Organization for Online Task-Free Class-Incremental Learning">
-  <meta property="og:image" content="assets/gofor_framework.jpg">
+  <meta property="og:image" content="gofor_framework.jpg">
   <title>GOFOR — BMVC 2026 | Parinita Nema</title>
   <style>
     :root { --navy:#07376b; --navy2:#062b54; --blue:#12629c; --teal:#098c96; --text:#192a3d; --muted:#506579; --line:#dfe8f0; --paper:#ffffff; --bg:#f5f8fb; }
@@ -82,7 +83,7 @@
     <h1>Gradient-Free Orthogonal Feature Organization for Online Task-Free Class-Incremental Learning</h1>
     <p class="authors"><a href="https://parinitanema.github.io/" target="_blank" rel="noopener noreferrer">Parinita Nema</a> &nbsp;·&nbsp; Vinod K. Kurmi</p>
     <p class="affiliations">Department of Data Science and Engineering<br>Indian Institute of Science Education and Research (IISER) Bhopal, India</p>
-    <div class="hero-actions"><a class="action primary" href="assets/GOFOR_BMVC2026.pdf" target="_blank" rel="noopener noreferrer">Read the paper ↗</a><a class="action" href="#abstract">Explore the method ↓</a></div>
+    <div class="hero-actions"><a class="action primary" href="GOFOR_BMVC2026.pdf" target="_blank" rel="noopener noreferrer">Read the paper ↗</a><a class="action" href="#abstract">Explore the method ↓</a></div>
   </div>
 </header>
 <nav class="navigation" aria-label="Page navigation"><ul>
@@ -93,14 +94,14 @@
   <section id="abstract">
     <p class="section-kicker">GOFOR · Framework</p>
     <h2>Abstract</h2>
-    <figure class="figure"><a href="assets/gofor_framework.jpg" target="_blank" rel="noopener noreferrer" title="View the GOFOR framework figure at full resolution"><img src="assets/gofor_framework.jpg" alt="GOFOR architecture: online task-free data stream, Sliced-Wasserstein drift detection, covariance-aware prototype dispersion, and multi-head orthogonal random-feature organization." loading="eager"></a>
+    <figure class="figure"><a href="gofor_framework.jpg" target="_blank" rel="noopener noreferrer" title="View the GOFOR framework figure at full resolution"><img src="gofor_framework.jpg" alt="GOFOR architecture: online task-free data stream, Sliced-Wasserstein drift detection, covariance-aware prototype dispersion, and multi-head orthogonal random-feature organization." loading="eager"></a>
       <figcaption>Figure 1. GOFOR combines Sliced-Wasserstein drift detection, covariance-aware prototype dispersion, and multi-head orthogonal random-feature organization. Click to enlarge.</figcaption>
     </figure>
     <p class="abstract-text">This paper studies the challenging problem of online task-free class-incremental learning, a variant of continual learning where the model learns from a one-pass data stream without access to task identities. Existing methods either rely on memory buffers, which raise privacy and storage concerns, or employ continuous gradient-based feature-space organization, which may suffer from severe overfitting and catastrophic forgetting, especially when exposed to a single-pass data stream with unknown task boundaries. To this end, we propose Gradient-Free Orthogonal Feature Organization with Drift-Guided Refresh, an exemplar-free feature organization framework that performs gradient-free feature adaptation. Our method enforces orthogonality in the high-dimensional projection layer to reduce correlations among feature directions without requiring extensive training. To maintain previous class boundaries without replaying raw samples, we introduce a covariance-aware and dispersion-enhanced prototype mechanism that maximizes inter-class margins. Moreover, to prevent aggressive overwriting caused by continuous updates, our method detects distributional drift and updates the feature organization only when drift is observed. Extensive empirical experiments on four benchmark datasets, including CIFAR-10, CIFAR-100, CUB-200, and CORe50, demonstrate that our approach significantly outperforms existing methods and achieves state-of-the-art performance.</p>
     <div class="key-points"><div class="point"><b>Single-pass, task-free learning</b><span>Processes a continuous stream without task identities.</span></div><div class="point"><b>Exemplar-free &amp; gradient-free</b><span>Does not replay raw samples or rely on gradient-based feature adaptation.</span></div><div class="point"><b>Drift-guided refresh</b><span>Refreshes feature organization when a distribution shift is detected.</span></div></div>
   </section>
   <div class="resources" id="resources">
-    <section class="resource-card" id="download"><h2>Download</h2><img class="download-preview" src="assets/paper_preview.webp" alt="First-page preview of the GOFOR BMVC 2026 paper" loading="lazy"><a class="card-action" href="assets/GOFOR_BMVC2026.pdf" download>Download paper (PDF) ↓</a></section>
+    <section class="resource-card" id="download"><h2>Download</h2><img class="download-preview" src="paper_preview.webp" alt="First-page preview of the GOFOR BMVC 2026 paper" loading="lazy"><a class="card-action" href="GOFOR_BMVC2026.pdf" download>Download paper (PDF) ↓</a></section>
     <section class="resource-card" id="code"><h2>Code</h2><div class="code-placeholder"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M14 11 5 20l9 9M26 11l9 9-9 9M23 7l-6 26" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>GOFOR code</strong><small>Repository link not yet available.<br>No unrelated code is linked here.</small></div><p>The code link can be added to this section once the GOFOR repository is public.</p></section>
     <section class="resource-card" id="dataset"><h2>Datasets</h2><p>Benchmarks evaluated in the paper:</p><ul class="dataset-list"><li><a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener noreferrer">CIFAR-10</a></li><li><a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener noreferrer">CIFAR-100</a></li><li><a href="https://www.vision.caltech.edu/datasets/cub_200_2011/" target="_blank" rel="noopener noreferrer">CUB-200-2011</a></li><li><a href="https://vlomonaco.github.io/core50/index.html" target="_blank" rel="noopener noreferrer">CORe50</a></li></ul></section>
   </div>
