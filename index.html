@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GOFOR: Gradient-Free Orthogonal Feature Organization for Online Task-Free Class-Incremental Learning — Parinita Nema and Vinod K. Kurmi, BMVC 2026.">
+  <meta name="theme-color" content="#07376b">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GOFOR | BMVC 2026">
+  <meta property="og:description" content="Gradient-Free Orthogonal Feature Organization for Online Task-Free Class-Incremental Learning">
+  <meta property="og:image" content="assets/gofor_framework.jpg">
+  <title>GOFOR — BMVC 2026 | Parinita Nema</title>
+  <style>
+    :root { --navy:#07376b; --navy2:#062b54; --blue:#12629c; --teal:#098c96; --text:#192a3d; --muted:#506579; --line:#dfe8f0; --paper:#ffffff; --bg:#f5f8fb; }
+    *, *::before, *::after { box-sizing:border-box; }
+    html {scroll-behavior:smooth; scroll-padding-top:80px;}
+    body { margin:0; background:var(--bg); font-family:Arial,Helvetica,sans-serif; color:var(--text); line-height:1.7; }
+    a { color:var(--blue); text-decoration:none; }
+    a:hover, a:focus-visible {text-decoration:underline;}
+    .title-section {background:linear-gradient(135deg,var(--navy2),var(--navy) 60%,#11598a); color:white; padding:72px 22px 58px; text-align:center; position:relative; overflow:hidden;}
+    .title-section::after {content:"";position:absolute;bottom:-155px;right:-110px;width:410px;height:410px;border:1px solid rgba(255,255,255,.10);border-radius:50%;pointer-events:none}
+    .title-inner {max-width:1040px; margin:0 auto; position:relative;z-index:1;}
+    .tag {display:inline-block;padding:5px 15px;border:1px solid rgba(255,255,255,.33);border-radius:30px;letter-spacing:.12em;text-transform:uppercase;font-size:12px;font-weight:700;background:rgba(255,255,255,.075);}
+    .title-section h1 {font-size:clamp(30px,4vw,45px);line-height:1.23;letter-spacing:-.022em;margin:23px auto 19px;max-width:970px;font-weight:800;}
+    .authors {font-size:19px;font-weight:700;margin:0;color:#fff;}
+    .authors a {color:#fff;border-bottom:1px dotted rgba(255,255,255,.7);}
+    .affiliations {font-size:15px;margin:8px auto 24px;opacity:.9;}
+    .hero-actions {display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;}
+    .action {border:1px solid rgba(255,255,255,.55);padding:9px 17px;border-radius:8px;color:#fff;font-weight:700;font-size:14px;}
+    .action.primary {background:#fff;border-color:#fff;color:var(--navy);}
+    .action:hover {text-decoration:none;transform:translateY(-1px);}
+    .navigation {position:sticky;top:0;background:#085092;z-index:10;box-shadow:0 3px 12px rgba(5,35,65,.15);}
+    .navigation ul {list-style:none;display:flex;gap:5px;justify-content:center;flex-wrap:wrap;padding:0;margin:0;}
+    .navigation a {display:block;color:#fff;padding:12px 19px;font-size:14px;font-weight:700;}
+    .navigation a:hover,.navigation a:focus-visible {background:rgba(255,255,255,.12);text-decoration:none;}
+    .headline {max-width:1120px;margin:25px auto 0;text-align:center;padding:12px 18px;color:#9d2e35;font-weight:800;background:#fff3f2;border:1px solid #f0d2d1;border-radius:10px;font-size:17px;}
+    .container {max-width:1160px;padding:20px 21px 65px;margin:auto;}
+    section {background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:0 7px 26px rgba(5,34,65,.045);padding:32px;margin:21px 0;}
+    section h2 {margin:0 0 21px;font-size:23px;color:var(--navy);padding-bottom:12px;border-bottom:2px solid #dbe9f2;line-height:1.25;}
+    section h3 {font-size:19px;color:var(--navy);margin:0 0 12px;}
+    .figure {margin:5px auto 22px;text-align:center;}
+    .figure img {display:block;width:100%;max-width:1030px;height:auto;margin:auto;outline:1px solid #e5eaf0;border-radius:8px;}
+    .figure figcaption {text-align:center;color:var(--muted);font-size:13px;line-height:1.5;margin:12px auto;max-width:850px;}
+    .abstract-text {font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.9;color:#374b5e;margin:0;}
+    .section-kicker {font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);font-weight:800;margin:0 0 6px;}
+    .key-points {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:25px 0 4px;}
+    .point {padding:15px 18px;background:#f3f8fc;border:1px solid #e2edf5;border-radius:9px;}
+    .point b {color:var(--navy);font-size:14px;display:block;}
+    .point span {font-size:13px;color:var(--muted);line-height:1.5;display:block;margin-top:5px;}
+    .resources {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px;margin-top:21px;}
+    .resource-card {margin:0;min-width:0;display:flex;flex-direction:column;align-items:stretch;}
+    .resource-card p {font-size:14px;color:var(--muted);margin:0 0 15px;}
+    .download-preview {display:block;margin:auto auto 18px;width:min(170px,100%);border:1px solid #dde4eb;box-shadow:0 8px 19px rgba(17,37,63,.12);border-radius:3px;}
+    .resource-card .card-action {margin-top:auto;display:inline-block;align-self:flex-start;color:#fff;background:var(--navy);padding:9px 17px;border-radius:7px;font-size:14px;font-weight:700;}
+    .resource-card .card-action:hover {background:#125795;text-decoration:none;}
+    .code-placeholder {background:#f2f6fa;border:1px dashed #b3c6d8;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;min-height:162px;margin:0 0 19px;color:#566b7e;text-align:center;padding:18px;}
+    .code-placeholder svg {width:43px;height:43px;stroke:#65798a;stroke-width:1.5;fill:none;}
+    .code-placeholder small {font-size:13px;line-height:1.5;}
+    .dataset-list {margin:7px 0 0;padding:0;list-style:none;}
+    .dataset-list li {border-bottom:1px solid #edf1f5;padding:10px 0;font-weight:700;font-size:14px;}
+    .dataset-list li:last-child {border:0;}
+    .dataset-list a::after {content:' ↗';font-weight:normal;color:#7b8996;}
+    .citation-note {margin:0 0 14px;color:var(--muted);font-size:15px;}
+    .cite-bar {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;}
+    .cite-bar h2 {flex:1;margin:0;border:0;padding:0;}
+    .copy-btn {font:inherit;font-size:13px;cursor:pointer;color:var(--navy);background:white;border:1px solid #a5bbce;border-radius:7px;padding:8px 13px;font-weight:700;}
+    pre {white-space:pre;overflow-x:auto;border-radius:9px;background:#f2f6fa;border:1px solid #dce7ef;font-size:13px;padding:20px;line-height:1.7;color:#243648;tab-size:2;}
+    .minor {font-size:12px;color:#708194;margin:9px 0 0;}
+    .contact-links {display:flex;flex-wrap:wrap;gap:13px;}
+    .contact-links a {border:1px solid #d4e0ea;background:#f9fbfd;border-radius:8px;padding:11px 17px;font-weight:700;font-size:14px;}
+    .contact-links a:hover {text-decoration:none;border-color:#7ba9ce;background:#eff7fc;}
+    footer {font-size:12px;text-align:center;margin:5px auto 25px;color:#627385;}
+    @media(max-width:850px) { .resources {grid-template-columns:1fr 1fr;} .resources .resource-card:last-child{grid-column:span 2} .key-points{grid-template-columns:1fr;} }
+    @media(max-width:610px) { .title-section{padding:44px 17px 34px;} .title-section h1{font-size:29px;} .navigation a{padding:11px 10px;font-size:13px;} .headline{margin:17px 13px 0;font-size:14px;} .container{padding:10px 13px 35px;} section{padding:21px 18px;margin:14px 0;} .resources{grid-template-columns:1fr;gap:13px;} .resources .resource-card:last-child{grid-column:auto;} .abstract-text{font-size:15px;line-height:1.75;} .title-section .authors{font-size:16px} }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.action:hover{transform:none}}
+  </style>
+</head>
+<body>
+<header class="title-section">
+  <div class="title-inner">
+    <span class="tag">Research Project · BMVC 2026</span>
+    <h1>Gradient-Free Orthogonal Feature Organization for Online Task-Free Class-Incremental Learning</h1>
+    <p class="authors"><a href="https://parinitanema.github.io/" target="_blank" rel="noopener noreferrer">Parinita Nema</a> &nbsp;·&nbsp; Vinod K. Kurmi</p>
+    <p class="affiliations">Department of Data Science and Engineering<br>Indian Institute of Science Education and Research (IISER) Bhopal, India</p>
+    <div class="hero-actions"><a class="action primary" href="assets/GOFOR_BMVC2026.pdf" target="_blank" rel="noopener noreferrer">Read the paper ↗</a><a class="action" href="#abstract">Explore the method ↓</a></div>
+  </div>
+</header>
+<nav class="navigation" aria-label="Page navigation"><ul>
+  <li><a href="#abstract">Abstract</a></li><li><a href="#resources">Resources</a></li><li><a href="#citation">Citation</a></li><li><a href="#contact">Connect</a></li>
+</ul></nav>
+<div class="headline">Accepted at the British Machine Vision Conference (BMVC) 2026 · Lancaster, UK</div>
+<main class="container">
+  <section id="abstract">
+    <p class="section-kicker">GOFOR · Framework</p>
+    <h2>Abstract</h2>
+    <figure class="figure"><a href="assets/gofor_framework.jpg" target="_blank" rel="noopener noreferrer" title="View the GOFOR framework figure at full resolution"><img src="assets/gofor_framework.jpg" alt="GOFOR architecture: online task-free data stream, Sliced-Wasserstein drift detection, covariance-aware prototype dispersion, and multi-head orthogonal random-feature organization." loading="eager"></a>
+      <figcaption>Figure 1. GOFOR combines Sliced-Wasserstein drift detection, covariance-aware prototype dispersion, and multi-head orthogonal random-feature organization. Click to enlarge.</figcaption>
+    </figure>
+    <p class="abstract-text">This paper studies the challenging problem of online task-free class-incremental learning, a variant of continual learning where the model learns from a one-pass data stream without access to task identities. Existing methods either rely on memory buffers, which raise privacy and storage concerns, or employ continuous gradient-based feature-space organization, which may suffer from severe overfitting and catastrophic forgetting, especially when exposed to a single-pass data stream with unknown task boundaries. To this end, we propose Gradient-Free Orthogonal Feature Organization with Drift-Guided Refresh, an exemplar-free feature organization framework that performs gradient-free feature adaptation. Our method enforces orthogonality in the high-dimensional projection layer to reduce correlations among feature directions without requiring extensive training. To maintain previous class boundaries without replaying raw samples, we introduce a covariance-aware and dispersion-enhanced prototype mechanism that maximizes inter-class margins. Moreover, to prevent aggressive overwriting caused by continuous updates, our method detects distributional drift and updates the feature organization only when drift is observed. Extensive empirical experiments on four benchmark datasets, including CIFAR-10, CIFAR-100, CUB-200, and CORe50, demonstrate that our approach significantly outperforms existing methods and achieves state-of-the-art performance.</p>
+    <div class="key-points"><div class="point"><b>Single-pass, task-free learning</b><span>Processes a continuous stream without task identities.</span></div><div class="point"><b>Exemplar-free &amp; gradient-free</b><span>Does not replay raw samples or rely on gradient-based feature adaptation.</span></div><div class="point"><b>Drift-guided refresh</b><span>Refreshes feature organization when a distribution shift is detected.</span></div></div>
+  </section>
+  <div class="resources" id="resources">
+    <section class="resource-card" id="download"><h2>Download</h2><img class="download-preview" src="assets/paper_preview.webp" alt="First-page preview of the GOFOR BMVC 2026 paper" loading="lazy"><a class="card-action" href="assets/GOFOR_BMVC2026.pdf" download>Download paper (PDF) ↓</a></section>
+    <section class="resource-card" id="code"><h2>Code</h2><div class="code-placeholder"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M14 11 5 20l9 9M26 11l9 9-9 9M23 7l-6 26" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>GOFOR code</strong><small>Repository link not yet available.<br>No unrelated code is linked here.</small></div><p>The code link can be added to this section once the GOFOR repository is public.</p></section>
+    <section class="resource-card" id="dataset"><h2>Datasets</h2><p>Benchmarks evaluated in the paper:</p><ul class="dataset-list"><li><a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener noreferrer">CIFAR-10</a></li><li><a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener noreferrer">CIFAR-100</a></li><li><a href="https://www.vision.caltech.edu/datasets/cub_200_2011/" target="_blank" rel="noopener noreferrer">CUB-200-2011</a></li><li><a href="https://vlomonaco.github.io/core50/index.html" target="_blank" rel="noopener noreferrer">CORe50</a></li></ul></section>
+  </div>
+  <section id="citation"><div class="cite-bar"><h2>Citation</h2><button class="copy-btn" type="button" onclick="copyCitation()" id="copy-btn">Copy BibTeX</button></div><p class="citation-note">If you find GOFOR useful in your research, please cite:</p><pre id="bibtex">@inproceedings{nema2026gofor,
+  title     = {Gradient-Free Orthogonal Feature Organization for Online Task-Free Class-Incremental Learning},
+  author    = {Nema, Parinita and Kurmi, Vinod K.},
+  booktitle = {British Machine Vision Conference (BMVC)},
+  year      = {2026},
+  note      = {Accepted paper; final bibliographic details pending}
+}</pre><p class="minor">Provisional BibTeX for the accepted BMVC 2026 paper; update with official proceedings metadata when available.</p></section>
+  <section id="contact"><h2>Connect</h2><p>Questions about GOFOR or opportunities to collaborate?</p><div class="contact-links"><a href="mailto:parinita22@iiserb.ac.in">✉ Email Parinita</a><a href="https://parinitanema.github.io/" target="_blank" rel="noopener noreferrer">Personal website ↗</a><a href="https://github.com/Parinitanema" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a><a href="https://bmvc2026.bmva.org/programme/monday/" target="_blank" rel="noopener noreferrer">BMVC programme ↗</a></div></section>
+</main>
+<footer>GOFOR · BMVC 2026 · Parinita Nema and Vinod K. Kurmi · Hosted independently using GitHub Pages.</footer>
+<script>
+  async function copyCitation(){
+    const btn=document.getElementById('copy-btn');
+    const value=document.getElementById('bibtex').innerText;
+    try { await navigator.clipboard.writeText(value); btn.textContent='Copied ✓'; setTimeout(()=>btn.textContent='Copy BibTeX',1900); }
+    catch(e){ const range=document.createRange();range.selectNodeContents(document.getElementById('bibtex'));const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);btn.textContent='Select & copy text'; }
+  }
+</script>
+</body>
+</html>
